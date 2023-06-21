@@ -11,4 +11,4 @@ After doing some analysis, including making plots, of a car advertisement datase
 The link to the GitHub repository is as follows: 
 https://github.com/ChStLeGitHub/Sprint4Project
 
-If you wanted to launch the project on your local machine, download the files and then run the streamlit run app.py command using the terminal.
+If you wish to launch the project on your local machine, download the files and then run the streamlit run app.py command using the terminal.
