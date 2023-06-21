@@ -12,6 +12,6 @@ The link to the GitHub repository is the following:
 https://github.com/ChStLeGitHub/Sprint4Project
 
 Furthermore, the link to the app on Render is the following:
-https://spring-4-project.onrender.com
+https://sprint-4-project.onrender.com
 
 If you wish to launch the project on your local machine, download the files and then run the streamlit run app.py command using the terminal.
