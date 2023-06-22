@@ -14,4 +14,4 @@ https://github.com/ChStLeGitHub/Sprint4Project
 Furthermore, the link to the app on Render is the following:
 https://sprint-4-project-6iyo.onrender.com
 
-If you wish to launch the project on your local machine, download the files and then run the streamlit run app.py command using the terminal.
+If you wish to run the app on your local machine, download the files and then run the streamlit run app.py command using the terminal.
