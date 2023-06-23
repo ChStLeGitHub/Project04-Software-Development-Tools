@@ -4,6 +4,62 @@ import plotly.express as px
 
 car_data = pd.read_csv('vehicles_us.csv')
 
+# The code for preprocessing the data begins on the next line.
+car_data = car_data.drop_duplicates()
+# Sometimes datasets have rows that are exact duplicates, and it is a good idea to drop them if there are any.
+
+# The following code replaces all of the null 'model_year' values with the median model year of the corresponding model.
+median_model_year = car_data.groupby('model')['model_year'].median()
+
+
+def fill_missing_model_year(row):
+    if pd.isnull(row['model_year']):
+        return median_model_year[row['model']]
+    else:
+        return row['model_year']
+
+
+car_data['model_year'] = car_data.apply(fill_missing_model_year, axis=1)
+
+# It doesn't make sense for the model years to be float values. They are now integer values.
+car_data['model_year'] = car_data['model_year'].astype(int)
+
+# The following code replaces all of the null 'cylinders' values with the median number of cylinders of the corresponding model.
+median_cylinders = car_data.groupby('model')['cylinders'].median()
+
+
+def fill_missing_cylinders(row):
+    if pd.isnull(row['cylinders']):
+        return median_cylinders[row['model']]
+    else:
+        return row['cylinders']
+
+
+car_data['cylinders'] = car_data.apply(fill_missing_cylinders, axis=1)
+
+car_data['cylinders'] = car_data['cylinders'].astype(int)
+# It doesn't make sense for the number of cylinders to be float values. They are now integer values.
+
+# The following code replaces all of the null 'odometer' values with the median odometer value of the corresponding model year.
+median_odometer = car_data.groupby('model_year')['odometer'].median()
+
+
+def fill_missing_odometer(row):
+    if pd.isnull(row['odometer']):
+        return median_odometer[row['model_year']]
+    else:
+        return row['odometer']
+
+
+car_data['odometer'] = car_data.apply(fill_missing_odometer, axis=1)
+
+car_data['paint_color'] = car_data['paint_color'].fillna('Unknown')
+# It seems appropriate to me to replace missing paint color values with 'Unknown'.
+
+car_data['is_4wd'] = car_data['is_4wd'].replace(1.0, 'Yes')
+car_data['is_4wd'] = car_data['is_4wd'].fillna('No')
+# I noticed that all of the is_4wd values were either 1.0 or NaN. I think it is more intuitive to use the words "Yes" and "No" instead.
+
 # The code for the histogram begins on the next line.
 price_data = px.histogram(car_data[car_data['price'] <= 50000],
                           color_discrete_sequence=['blue'],
