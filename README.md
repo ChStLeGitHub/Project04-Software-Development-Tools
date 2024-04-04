@@ -4,7 +4,7 @@
 
 First, the following tasks were completed:
 
-(1) Creating and managing python virtual environments.
+(1) Creating and managing Python virtual environments.
 
 (2) Developing a web application.
 
