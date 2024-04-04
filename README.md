@@ -3,8 +3,11 @@
 **Objective:** To build and deploy a web application dashboard to a cloud service. 
 
 First, the following tasks were completed:
+
 (1) Creating and managing python virtual environments.
+
 (2) Developing a web application.
+
 (3) Deploying the application to a cloud service that will make it accessible to the public.
 
 Next, I conducted data analysis, including making plots, of a car advertisement dataset. 
